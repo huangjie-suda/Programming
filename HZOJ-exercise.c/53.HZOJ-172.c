@@ -5,28 +5,24 @@
 	> Created Time: Tue 23 Jul 2024 10:10:30 PM CST
  ************************************************************************/
 
-#include<stdio.h>
-
-void sort(char *s, int len) {
-    for (int i = 0; i < len; i++) {
-        if (s[i] > s[i + 1]) {
-            char temp[len];
-            temp[i] = s[i];
-            s[i] = s[i + 1];
-            s[i + 1] = temp[i];
-        }
-    }
-    return ;
-}
+#include <stdio.h>
+#include <string.h>
 
 int main() {
-    char s[10];
+    char (*s[20])[10];
     for (int i = 0; i < 10; i++) {
-        scanf("%s", s + i);
+        scanf("%s", s[20][i]);
     }
-    sort(s, 10);
     for (int i = 0; i < 10; i++) {
-        printf("%s\n", &s[i]);
+        if (strncmp(s[20][i], s[20][i + 1], 2) > 0) {
+            char temp[20];
+            strcpy(temp, s[20][i]);
+            strcpy(s[20][i], s[20][i + 1]);
+            strcpy(s[20][i + 1], temp);
+        }
+    }
+    for (int i = 0; i < 10; i++) {
+        printf("%s\n", s[20][i]);
     }
     return 0;
 }
