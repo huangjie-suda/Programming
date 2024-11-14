@@ -32,7 +32,7 @@ public :
         return ret;
     }
     void operator*=(int x) {
-        for (int i = 0; i < size(); i++) at(i) *= x;
+        for (int i = 0; i < size() - 1; i++) at(i) *= x;
         proccess_digit();
         return ;
     }
